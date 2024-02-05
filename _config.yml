@@ -52,6 +52,11 @@ menu:
     url:               /about/
   - title:             Publications
     url:               https://scholar.google.com/citations?user=H4vZJ-QAAAAJ&hl=ko
+  - title:             Studies
+    url:               /tbd
+
+favicon: /assets/img/favcon.png
+apple_touch_icon: /assets/img/favcon.png
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
