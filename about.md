@@ -9,7 +9,7 @@ redirect_from:
   - /download/
 ---
 
-# About
+# Minsu Ko (고민수)
 
 <!--author-->
 
