@@ -48,10 +48,10 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             About
+  - title:             About (CV)
     url:               /about/
   - title:             Publications
-    url:               https://scholar.google.com/citations?user=H4vZJ-QAAAAJ&hl=ko
+    url:               /publications/
   - title:             Studies
     url:               /tbd
 
