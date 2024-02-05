@@ -89,7 +89,7 @@ remote_theme: hydecorp/hydejack@v9
 # Customizaton
 # ----------------------------------------------------------------------------------------
  
-# Sidebar image and theme color of the site.
+# Sidebar image and theme color of the site. # 사이트 배경 전체 이미지.
 accent_image:          /assets/img/me_MAX.jpg
 accent_color:          rgb(79,177,186)
 
