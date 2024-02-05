@@ -13,9 +13,9 @@ redirect_from:
 
 <!--author-->
 
-<div style="position: relative; text-align: center;">
-    <img src="/assets/img/me_MAX.jpg" style="width:80%; height:auto;">
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;">
+<div style="text-align: center;">
+    <img src="/assets/img/me_MAX.jpg" style="width:80%; height:auto; display: block;">
+    <p style="text-align: left; display: inline-block;">
         Me working with CAPP-MAX axion haloscope at May 2023.
-    </div>
+    </p>
 </div>
