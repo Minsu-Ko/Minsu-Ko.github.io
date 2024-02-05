@@ -13,5 +13,8 @@ redirect_from:
 
 <!--author-->
 
-![Screenshot](assets/img/me_MAX.jpg){:.lead width="1439" height="1440" loading="lazy"}
-Me working with CAPP-MAX axion haloscope at May 2023.
+<p align="center">
+  <img src="assets/img/me_MAX.jpg" alt="Screenshot" style="width:80%; height:auto;"/>
+  <br>
+  Me working with CAPP-MAX axion haloscope at May 2023.
+</p>
