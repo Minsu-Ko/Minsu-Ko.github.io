@@ -483,10 +483,9 @@ By default, Hydejack will use the Favicon from `/assets/icons/favicon.ico` and A
 You can either override these files, or override the path in the config file via `favicon` and `app_touch_icon` keys:
 
 ```yml
-# file: "_config.yml"
+file: "_config.yml"
 favicon: /assets/img/favcon.png
 apple_touch_icon: /assets/img/favcon.png
-
 ```
 
 ### Changing the App Icons
