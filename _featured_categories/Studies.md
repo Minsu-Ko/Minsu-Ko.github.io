@@ -12,6 +12,8 @@ slug: studies
 description: >
   Studies page.
 
+hide_description: true
+
 # (Optional) You can disable grouping posts by date.
 # no_groups: true
 
