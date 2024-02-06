@@ -13,7 +13,7 @@ hide_description: true
 ---
 
 <p align="center">
-  <img src="/assets/img/me_formal.jpg" style="width:80%; height:auto;"/>
+  <img src="/assets/img/me_formal.jpg" style="width:40%; height:auto;"/>
 </p>
 
 Hi, my name is Minsu Ko, a senior undergraduate student at the department of physics at Korea Advanced Institute of Science
