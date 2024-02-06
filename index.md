@@ -1,9 +1,10 @@
 ---
-layout: blog
+layout: about
 image: /assets/img/blog/hydejack-9.jpg
 description: >
   about page
 hide_description: true
+cover: true
 redirect_from:
   - /download/
 ---
