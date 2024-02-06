@@ -23,9 +23,9 @@ Research (CAPP) of Institute for Basic Science (IBS).
 **My interest lies on**
 - Fundamental particle physics related to the creation and evolution of the universe.
 - Explain the huge scale cosmology based on the observational particle physics, founded by [Koshiba].
-- Cutting-edge sensitivity detectors for beyond standard model physics.
+- Cutting-edge sensitivity detectors for beyond standard model physics.  
 
-<br>
+
 **This is my small blog.**
 - [About me (CV)] : You can get details about me and see (or download) my CV.
 - [Publications] : I listed my publications (paper, presentation, etc) here.
