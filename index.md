@@ -19,8 +19,8 @@ Research (CAPP) of Institute for Basic Science (IBS).
 This is my small blog. Here I provide the details about me in [About (CV)], my publications at [Publications].
 Especially in [Studies] I share my documentized notes on studying physics. 
 
-You can contact me via komin0310@kaist.ac.kr
+You can contact me via [email](komin0310@kaist.ac.kr)
 
 [About (CV)]: /about/
 [Publications] : /publications/
-[Studies]: /Studies/
+[Studies]: /studies/
