@@ -54,8 +54,6 @@ menu:
     url:               /publications/
   - title:             Studies
     url:               /Studies/
-  - title:             sdsd
-    url:               /publications/
 
 favicon: /assets/img/favcon.png
 apple_touch_icon: /assets/img/favcon.png
