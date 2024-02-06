@@ -7,6 +7,7 @@ last_modified_at: 2018-08-03
 no_link_title: false 
 no_excerpt: true
 hide_image: false
+hide_title: true
 cover: true
 hide_description: true
 ---
