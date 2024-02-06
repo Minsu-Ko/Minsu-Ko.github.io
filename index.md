@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: blog
 image: /assets/img/blog/hydejack-9.jpg
 description: >
   about page
