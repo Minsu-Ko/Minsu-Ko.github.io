@@ -1,9 +1,7 @@
 ---
-layout: list
-title: Etc
-slug: etc
+layout: blog
+title: Studies
 menu: true
-order: 1
 description: >
-sdsdsdsd
+ Studies category.
 ---
