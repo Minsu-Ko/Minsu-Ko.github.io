@@ -4,6 +4,7 @@ title:  "test"
 date:   2024-02-06 22:35:00 +0900
 description: >
   Example post.
+image: /assets/img/me_MAX.jpg
 categories: studies
 hide_description: true
 
