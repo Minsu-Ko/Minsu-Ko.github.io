@@ -8,6 +8,7 @@ no_link_title: false
 no_excerpt: false 
 hide_image: false
 cover: true
+hide_description: true
 ---
 
 # Minsu Ko (고민수)
