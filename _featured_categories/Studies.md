@@ -3,7 +3,6 @@ layout: blog
 title: Studies
 slug: Studies
 menu: true
-permalink: /Studies/
 order: 1
 sitemap: false
 description: >
