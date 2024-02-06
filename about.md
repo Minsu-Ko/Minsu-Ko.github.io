@@ -11,7 +11,7 @@ redirect_from:
 
 # Minsu Ko (고민수)
 
-<!--author-->
+Hi, my name is Minsu Ko, a senior undergraduate student at the department of physics at Korea Advanced Institute of Science and Technology (KAIST). Currently I'm working as a student assistant at the Center for Axion and Precision Physics Research (CAPP) of Institute for Basic Science (IBS).
 
 I'm basically envolved in axion haloscope experiments ongoing at CAPP. My work is mainly experimental characterizations
 of low noise amplifiers (such as Josephson parametric amplifiers and HEMTs) with sub Kelvin environments. It includes operations
