@@ -5,6 +5,7 @@ description: >
   about page of Minsu's blog.
 hide_description: true
 sitemap: false
+slug: example
 redirect_from:
   - /download/
 ---
