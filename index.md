@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: about
 title: Minsu Ko
 description: >
   Blog of Minsu Ko studying physics
