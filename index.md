@@ -22,5 +22,5 @@ Especially in [Studies] I share my documentized notes on studying physics.
 You can contact me via [email](komin0310@kaist.ac.kr)
 
 [about me]: /about/
-[publications] : /publications/
+[publications]: /publications/
 [Studies]: /studies/
