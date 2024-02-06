@@ -32,7 +32,7 @@ Research (CAPP) of Institute for Basic Science (IBS).
 
 You can contact me via [email](komin0310@kaist.ac.kr)
 
-[about me]: /about/
+[About me (CV)]: /about/
 [publications]: /publications/
 [Studies]: /studies/
 [Koshiba]: https://en.wikipedia.org/wiki/Masatoshi_Koshiba
