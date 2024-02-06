@@ -12,6 +12,10 @@ cover: true
 hide_description: true
 ---
 
+<p align="center">
+  <img src="/assets/img/me_formal.jpg" style="width:80%; height:auto;"/>
+</p>
+
 Hi, my name is Minsu Ko, a senior undergraduate student at the department of physics at Korea Advanced Institute of Science
 and Technology (KAIST). Currently I'm working as a student assistant at the Center for Axion and Precision Physics
 Research (CAPP) of Institute for Basic Science (IBS).
