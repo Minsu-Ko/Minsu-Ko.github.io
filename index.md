@@ -4,6 +4,9 @@ image: /assets/img/blog/hydejack-9.jpg
 description: >
   about page
 hide_description: true
+no_link_title: false
+no_excerpt: false
+hide_image: false
 cover: true
 redirect_from:
   - /download/
