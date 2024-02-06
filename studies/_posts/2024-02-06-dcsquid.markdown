@@ -1,0 +1,15 @@
+---
+layout: post
+title: dcsquid
+date: 2024-02-06 22:35:00 +0900
+description: >
+  Example post.
+categories: studies
+hide_description: true
+---
+
+# DC SQUID
+
+test
+
+$$ a_x + b_y $$
