@@ -1,6 +1,6 @@
 ---
 layout: about
-title: Minsu Ko
+title: Welcome
 description: >
   Minsu Ko in physics
 last_modified_at: 2018-08-03
@@ -12,19 +12,15 @@ cover: true
 hide_description: true
 ---
 
-# Minsu Ko (고민수)
+Hi, my name is Minsu Ko, a senior undergraduate student at the department of physics at Korea Advanced Institute of Science
+and Technology (KAIST). Currently I'm working as a student assistant at the Center for Axion and Precision Physics
+Research (CAPP) of Institute for Basic Science (IBS).
 
-<!--author-->
+This is my small blog. Here I provide the details about me in [About (CV)], my publications at [Publications].
+Especially in [Studies] I share my documentized notes on studying physics. 
 
-You can download my [CV] as a pdf file.
+You can contact me via komin0310@kaist.ac.kr
 
-<p align="left">
-  <img src="/assets/img/me_MAX.jpg" style="width:80%; height:auto;"/>
-  <br>
-  Me working with the CAPP-MAX axion haloscope in May 2023.
-</p>
-<div style="clear:both;"></div>
-
-
-[CV]: /distributions/cv_minsu.pdf
-
+[About (CV]: /about/
+[Piblications] : /publications/
+[Studies]: /Studies/
