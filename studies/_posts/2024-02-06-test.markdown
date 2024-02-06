@@ -8,4 +8,13 @@ categories: studies
 ---
 
 # sdsds
+
+<p align="left">
+  <img src="/assets/img/me_MAX.jpg" style="width:80%; height:auto;"/>
+  <br>
+  Me working with the CAPP-MAX axion haloscope in May 2023.
+</p>
+<div style="clear:both;"></div>
+
+
 sdsdsds
