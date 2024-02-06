@@ -16,11 +16,11 @@ Hi, my name is Minsu Ko, a senior undergraduate student at the department of phy
 and Technology (KAIST). Currently I'm working as a student assistant at the Center for Axion and Precision Physics
 Research (CAPP) of Institute for Basic Science (IBS).
 
-This is my small blog. Here I provide the details about me in [About (CV)], my publications at [Publications].
+This is my small blog. Here I provide the details [about me], my [publications].
 Especially in [Studies] I share my documentized notes on studying physics. 
 
 You can contact me via [email](komin0310@kaist.ac.kr)
 
-[About (CV)]: /about/
-[Publications] : /publications/
+[about me]: /about/
+[publications] : /publications/
 [Studies]: /studies/
