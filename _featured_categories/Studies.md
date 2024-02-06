@@ -4,7 +4,7 @@ title: Studies
 slug: Studies
 menu: true
 permalink: /Studies/
-order: 3
+order: 1
 sitemap: false
 description: >
     Studies category.
