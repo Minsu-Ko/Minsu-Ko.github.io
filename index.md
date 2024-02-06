@@ -1,6 +1,6 @@
 ---
 layout: about
-title: Welcome
+title: Minsu's blog
 description: >
   Minsu Ko in physics
 last_modified_at: 2018-08-03
@@ -10,7 +10,6 @@ hide_image: false
 hide_title: true
 cover: true
 hide_description: true
-slug: example
 ---
 
 <p align="center">

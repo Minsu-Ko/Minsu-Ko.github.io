@@ -5,7 +5,6 @@ description: >
   about page of Minsu's blog.
 hide_description: true
 sitemap: false
-slug: example
 redirect_from:
   - /download/
 ---
@@ -13,6 +12,12 @@ redirect_from:
 # Minsu Ko (고민수)
 
 <!--author-->
+
+I'm basically envolved in axion haloscope experiments ongoing at CAPP. My work is mainly experimental characterizations
+of low noise amplifiers (such as Josephson parametric amplifiers and HEMTs) with sub Kelvin environments. It includes operations
+and maintanance of cryostats like dilution refrigerator, low temperature RF measurements.
+
+I'm currently funded by the 2024 long-term Undergraduate Research Program (URP) of KAIST. 
 
 You can download my [CV] as a pdf file.
 
