@@ -53,7 +53,7 @@ menu:
   - title:             Publications
     url:               /publications/
   - title:             Studies
-    url:               /testing/
+    url:               /testing.html/
 
 favicon: /assets/img/favcon.png
 apple_touch_icon: /assets/img/favcon.png
