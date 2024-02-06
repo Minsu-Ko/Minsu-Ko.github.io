@@ -4,6 +4,7 @@ image: /assets/img/blog/hydejack-9.jpg
 description: >
   about page of Minsu's blog.
 hide_description: true
+sitemap: false
 redirect_from:
   - /download/
 ---

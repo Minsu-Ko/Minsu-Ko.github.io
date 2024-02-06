@@ -10,6 +10,7 @@ hide_image: false
 hide_title: true
 cover: true
 hide_description: true
+slug: example
 ---
 
 <p align="center">
