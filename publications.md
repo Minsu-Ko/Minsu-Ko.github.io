@@ -1,5 +1,4 @@
 ---
-title: Publications
 layout: about
 image: /assets/img/blog/hydejack-9.jpg
 description: >
@@ -9,12 +8,12 @@ redirect_from:
   - /download/
 ---
 
-# Access at
+## Access at
 
 - Google Scholar: [Minsu Ko](https://scholar.google.com/citations?user=H4vZJ-QAAAAJ&hl=ko)
 - HEP INSPIRE: [Minsu Ko](https://inspirehep.net/authors/2696561)
 
-# List of Publications
+## List of Publications
 
 [2] Kim, JinMyeong, et al. "Wideband Amplification for IBS-CAPP's Axion Search Experiments." (2023). [paper](https://www.researchsquare.com/article/rs-3550142/v1) [poster](/distributions/publications/LTD20_poster.pdf)
 
