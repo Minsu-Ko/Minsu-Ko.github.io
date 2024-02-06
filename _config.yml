@@ -52,6 +52,8 @@ menu:
     url:               /about/
   - title:             Publications
     url:               /publications/
+  - title:             Studies
+    url:               /Studies/
 
 favicon: /assets/img/favcon.png
 apple_touch_icon: /assets/img/favcon.png
