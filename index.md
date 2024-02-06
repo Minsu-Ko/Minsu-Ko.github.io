@@ -22,5 +22,5 @@ Especially in [Studies] I share my documentized notes on studying physics.
 You can contact me via komin0310@kaist.ac.kr
 
 [About (CV)]: /about/
-[Piblications] : /publications/
+[Publications] : /publications/
 [Studies]: /Studies/
