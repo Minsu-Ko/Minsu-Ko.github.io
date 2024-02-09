@@ -15,11 +15,22 @@ Especially for axion haloscopes, JPAs are used as the first stage amplifiers rig
 Moreover, the resonance tunability of JPAs enables the combination of JPAs with tunable cavities.
 As a quantized circuit element, a modern theoretical model of the JPA~\cite{yamamoto_book} is not that simple.
 Nevertheless, it is possible to describe their overall features by harmonically combining basic concepts from classical mechanics, circuit theory, and quantum mechanics.
-In this section, I provide a theoretical comprehension of JPAs, including their resonance tunability, gain, noise, and the principle of signal amplification.
+In this section, I provide a theoretical comprehension of JPAs, including their resonance tunability, gain, noise, and the principle of signal amplification.   
 
 
+## DC SQUID
+A DC SQUID is the most important component inside a JPA.
+It makes the resonant frequency of the JPA tunable, and opens a way to exploiting the parametric amplification.
+The DC SQUID is a loop consisting of two Josephson junctions.
+I start with explaining the physics of Josephson junctions and how it is applied to the DC SQUID.   
 
-
+### Josephson Junction
+A Josephson junction is a weak link, or a small gap working as a superconducting tunnel between two superconductors.
+A significant feature of the Josephson junction is that a Cooper pair, not only a single electron, can flow through the weak link via quantum tunneling effect without power dissipation.
+A Josephson junction has its own critical current $I_s$, the maximum current flowing across the junction without voltage drop (power dissipation).
+An important characteristic of the weak link is that the phase gradient $\nabla\theta$ of an electron wave function is quite large compared to the phase gradients inside the superconductors.
+Especially for a tunnel junction, usually phase difference $\varphi=\theta_2-\theta_1$ is used instead of the gradient.
+I will show that the relation between the current flowing through the Josephson junction $I_s$ and the phase difference $\varphi$ across it.   
 
 ## Reference
 
