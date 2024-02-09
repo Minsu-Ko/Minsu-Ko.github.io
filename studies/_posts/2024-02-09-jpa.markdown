@@ -1,0 +1,18 @@
+---
+layout: post
+title: basic_comprehension_of_a_flux_driven_josephson_parametric_amplifier
+date: 2024-02-09
+description: >
+  The first combined comprehension about JPA.
+categories: studies
+hide_description: true
+---
+
+# Basic Comprehension of a Flux Driven Josephson Parametric Amplifier
+
+The Josephson Parametric Amplifier (JPA) is one of the quantum-noise-limited amplifiers widely used for low noise signal readouts, from axion haloscopes~\cite{caglar_JPA} to quantum computers~\cite{JPA_in_QC}.
+Especially for axion haloscopes, JPAs are used as the first stage amplifiers right after a cavity since the total system noise is mainly determined by the noise temperature of the first stage amplifier of the system.
+Moreover, the resonance tunability of JPAs enables the combination of JPAs with tunable cavities.
+As a quantized circuit element, a modern theoretical model of the JPA~\cite{yamamoto_book} is not that simple.
+Nevertheless, it is possible to describe their overall features by harmonically combining basic concepts from classical mechanics, circuit theory, and quantum mechanics.
+In this section, I provide a theoretical comprehension of JPAs, including their resonance tunability, gain, noise, and the principle of signal amplification.
