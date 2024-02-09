@@ -78,14 +78,20 @@ $$\begin{cases}
 
 These lead to the following Josephson equations, the bridge between physical quantities ($n_s$, $V$) and the wave function's phase difference.
 
-$$\begin{dcases}
+$$\begin{cases}
     \frac{dn_s}{dt}=\frac{2Kn_s}{\hbar}\sin{\varphi}\\
     \frac{d\varphi}{dt}=\frac{2eV}{\hbar}=\frac{2\pi}{\Phi_0}V
-\end{dcases} \tag{1.7}$$
+\end{cases} \tag{1.7}$$
 
 Here, $\Phi_0=h/2e$ is a magnetic flux quanta.
 It is obvious that $I_s \propto dn_s/dt$, which implies the relation between the critical current $I_c$ and $I_s$ under the existence of the phase difference.
 
+$$ I_s=I_c\sin{\varphi} \tag{1.8} $$
+
+This is so-called **DC Josephson effect**.
+Using the Josephson equation and $L=V(\frac{dI_s}{dt})$, one can obtain the non-linear inductance of a Josephson junction.
+
+$$ L_s = V(I_c\cos{\varphi}\frac{d\varphi}{dt})^{-1}=\frac{\Phi_0}{2\pi I_c \cos{\varphi}}=L_c\frac{1}{\cos{\varphi}} \tag{1.9} $$
 
 ## Reference
 
