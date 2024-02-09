@@ -6,94 +6,32 @@ description: >
   The first combined comprehension about JPA.
 categories: studies
 hide_description: true
-use_math: true
 ---
 
-# Basic Comprehension of a Flux Driven Josephson Parametric Amplifier
+<p align="center">
+  <img src="/assets/img/basic_JPA/0001.jpg" style="width:80%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
 
-The Josephson Parametric Amplifier (JPA) is one of the quantum-noise-limited amplifiers widely used for low noise signal readouts, from axion haloscopes [1] to quantum computers [2].
-Especially for axion haloscopes, JPAs are used as the first stage amplifiers right after a cavity since the total system noise is mainly determined by the noise temperature of the first stage amplifier of the system.
-Moreover, the resonance tunability of JPAs enables the combination of JPAs with tunable cavities.
-As a quantized circuit element, a modern theoretical model of the JPA [3] is not that simple.
-Nevertheless, it is possible to describe their overall features by harmonically combining basic concepts from classical mechanics, circuit theory, and quantum mechanics.
-In this section, I provide a theoretical comprehension of JPAs, including their resonance tunability, gain, noise, and the principle of signal amplification.   
+<p align="center">
+  <img src="/assets/img/basic_JPA/0002.jpg" style="width:80%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
+
+<p align="center">
+  <img src="/assets/img/basic_JPA/0003.jpg" style="width:80%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
 
 
-## DC SQUID
-A DC SQUID is the most important component inside a JPA.
-It makes the resonant frequency of the JPA tunable, and opens a way to exploiting the parametric amplification.
-The DC SQUID is a loop consisting of two Josephson junctions.
-I start with explaining the physics of Josephson junctions and how it is applied to the DC SQUID.   
 
-### Josephson Junction
-A Josephson junction is a weak link, or a small gap working as a superconducting tunnel between two superconductors.
-A significant feature of the Josephson junction is that a Cooper pair, not only a single electron, can flow through the weak link via quantum tunneling effect without power dissipation.
-A Josephson junction has its own critical current $I_s$, the maximum current flowing across the junction without voltage drop (power dissipation).
-An important characteristic of the weak link is that the phase gradient $\nabla\theta$ of an electron wave function is quite large compared to the phase gradients inside the superconductors.
-Especially for a tunnel junction, usually phase difference $\varphi=\theta_2-\theta_1$ is used instead of the gradient.
-I will show that the relation between the current flowing through the Josephson junction $I_s$ and the phase difference $\varphi$ across it.   
 
-Consider the Schr\"{o}dinger equation of the system with a discrete wave function basis expansion $\Psi(t)=\sum_\alpha C_{\alpha}(t)\psi_{\alpha}$.
 
-$$ i\hbar\frac{dC_\beta}{dt} = \sum_\alpha H_{\beta \alpha} C_\alpha(t) \tag{1.1} $$
 
-Note that $H_{ii}$ is the energy of the system in the state $\psi_i$ and $H_{ij}$ is representing the transition probability between two states $\psi_i$ and $\psi_j$.
-Now assume that the current through the Josephson junction is so larger ($I_s > I_c$)that there is voltage $V$ across the junction.
-Here I introduce the Feynman's approach~\cite{VV_textbook}: we consider a system of Cooper pairs as a two-level quantum mechanical system.
-That is, an electron pair (with charge $2e$) can occupy either level 1 or 2, with corresponding energy $H_{11}$ and $H_{22}$.
-Since there is a voltage $V$ across the junction, we can easily set $H_{11}=+eV$ and $H_{22}=-eV$.
-Also, introducing the transition element $H_{12}=H_{21}=K$, a system of differential equations associated with the Hamiltonian is established.
-
-$$
-  H =
-    \begin{pmatrix} 
-   eV & K  \\
-   K & -eV  \\
-   \end{pmatrix} \tag{1.2}
-$$
-
-$$\begin{cases}
-i\hbar\frac{dC_1}{dt}=eVC_1(t)+KC_2(t) \\
-i\hbar\frac{dC_2}{dt}=KC_1(t)-eVC_2(t) \tag{1.3}
-\end{cases}$$
-
-Provided that $C_1$ is the amplitude of the pair state at level 1, a physical interpretation forces one to set $|C_1|^2=n_s$, where $n_s$ is the density of superconducting electrons in the junction electrodes.
-For simplicity, assuming that both electrodes are made of the same material, $C_1$ and $C_2$ can be written as
-
-$$ C_1=\sqrt{n_s}e^{i\theta_1}, C_2=\sqrt{n_s}e^{i\theta_2}. \tag{1.4} $$
-
-Substituting these in (1.3), following equations are obtained with $\varphi=\theta_2-\theta_1$.
-
-$$\begin{cases}
-    i\hbar\frac{dn_s}{dt}-2\hbar n_s\frac{d\theta_1}{dt}=2eVn_s+2Kn_se^{i\varphi}\\
-    i\hbar\frac{dn_s}{dt}-2\hbar n_s\frac{d\theta_2}{dt}=2Kn_se^{-i\varphi}-2eVn_s \tag{1.5}
-\end{cases}$$
-
-By separating real and imaginary parts, 
-$$\begin{cases}
-        \frac{dn_s}{dt}=\frac{2Kn_s}{\hbar}\sin{\varphi}\\
-        \frac{d\theta_1}{dt}=-\frac{K}{\hbar}\cos{\varphi}-\frac{eV}{\hbar}\\
-        \frac{d\theta_2}{dt}=-\frac{K}{\hbar}\cos{\varphi}+\frac{eV}{\hbar}
-    \end{cases} \tag{1.6}$$
-
-These lead to the following Josephson equations, the bridge between physical quantities ($n_s$, $V$) and the wave function's phase difference.
-
-$$\begin{cases}
-    \frac{dn_s}{dt}=\frac{2Kn_s}{\hbar}\sin{\varphi}\\
-    \frac{d\varphi}{dt}=\frac{2eV}{\hbar}=\frac{2\pi}{\Phi_0}V
-\end{cases} \tag{1.7}$$
-
-Here, $\Phi_0=h/2e$ is a magnetic flux quanta.
-It is obvious that $I_s \propto dn_s/dt$, which implies the relation between the critical current $I_c$ and $I_s$ under the existence of the phase difference.
-
-$$ I_s=I_c\sin{\varphi} \tag{1.8} $$
-
-This is so-called **DC Josephson effect**.
-Using the Josephson equation and $L=V(\frac{dI_s}{dt})$, one can obtain the non-linear inductance of a Josephson junction.
-
-$$ L_s = V(I_c\cos{\varphi}\frac{d\varphi}{dt})^{-1}=\frac{\Phi_0}{2\pi I_c \cos{\varphi}}=L_c\frac{1}{\cos{\varphi}} \tag{1.9} $$
-
-## Reference
+## References
 
 [1] Çağlar Kutlu, Arjan F van Loo, Sergey V Uchaikin, Andrei N Matlashov, Doyu Lee, Seonjeong Oh, Jinsu Kim,
 Woohyun Chung, Yasunobu Nakamura, and Yannis K Semertzidis. Characterization of a flux-driven josephson
