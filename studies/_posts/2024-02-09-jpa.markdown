@@ -8,23 +8,90 @@ categories: studies
 hide_description: true
 ---
 
+# Basic Comprehension of a Flux-Driven Josephson Parametric Amplifier
+
 <p align="center">
-  <img src="/assets/img/basic_JPA/0001.jpg" style="width:80%; height:auto;"/>
+  <img src="/assets/img/basic_JPA/0001.jpg" style="width:100%; height:auto;"/>
   <br>
 </p>
 <div style="clear:both;"></div>
 
 <p align="center">
-  <img src="/assets/img/basic_JPA/0002.jpg" style="width:80%; height:auto;"/>
+  <img src="/assets/img/basic_JPA/0002.jpg" style="width:100%; height:auto;"/>
   <br>
 </p>
 <div style="clear:both;"></div>
 
 <p align="center">
-  <img src="/assets/img/basic_JPA/0003.jpg" style="width:80%; height:auto;"/>
+  <img src="/assets/img/basic_JPA/0003.jpg" style="width:100%; height:auto;"/>
   <br>
 </p>
 <div style="clear:both;"></div>
+
+<p align="center">
+  <img src="/assets/img/basic_JPA/0004.jpg" style="width:100%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
+
+<p align="center">
+  <img src="/assets/img/basic_JPA/0005.jpg" style="width:100%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
+
+<p align="center">
+  <img src="/assets/img/basic_JPA/0006.jpg" style="width:100%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
+
+<p align="center">
+  <img src="/assets/img/basic_JPA/0007.jpg" style="width:100%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
+
+<p align="center">
+  <img src="/assets/img/basic_JPA/0008.jpg" style="width:100%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
+
+<p align="center">
+  <img src="/assets/img/basic_JPA/0009.jpg" style="width:100%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
+
+<p align="center">
+  <img src="/assets/img/basic_JPA/0010.jpg" style="width:100%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
+
+<p align="center">
+  <img src="/assets/img/basic_JPA/0011.jpg" style="width:100%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
+
+<p align="center">
+  <img src="/assets/img/basic_JPA/0012.jpg" style="width:100%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
+
+<p align="center">
+  <img src="/assets/img/basic_JPA/0013.jpg" style="width:100%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
+
+
+
+
+
 
 
 
