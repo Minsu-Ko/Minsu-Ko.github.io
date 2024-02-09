@@ -44,11 +44,20 @@ That is, an electron pair (with charge $2e$) can occupy either level 1 or 2, wit
 Since there is a voltage $V$ across the junction, we can easily set $H_{11}=+eV$ and $H_{22}=-eV$.
 Also, introducing the transition element $H_{12}=H_{21}=K$, a system of differential equations associated with the Hamiltonian is established.
 
-$$H =
+\[
+  H =
     \begin{pmatrix} 
    eV & K  \\
    K & -eV  \\
-   \end{pmatrix} \tag{1.2}$$
+   \end{pmatrix} \tag{1.2}
+\]
+
+$$\begin{cases}
+i\hbar\frac{dC_1}{dt}=eVC_1(t)+KC_2(t) \\
+i\hbar\frac{dC_2}{dt}=KC_1(t)-eVC_2(t) \tag{1.3}
+\end{cases}$$
+
+\begin{equation}
 
 ## Reference
 
