@@ -10,9 +10,43 @@ hide_description: true
 
 # Basic Comprehension of a Flux Driven Josephson Parametric Amplifier
 
-The Josephson Parametric Amplifier (JPA) is one of the quantum-noise-limited amplifiers widely used for low noise signal readouts, from axion haloscopes~\cite{caglar_JPA} to quantum computers~\cite{JPA_in_QC}.
+The Josephson Parametric Amplifier (JPA) is one of the quantum-noise-limited amplifiers widely used for low noise signal readouts, from axion haloscopes [1] to quantum computers [2].
 Especially for axion haloscopes, JPAs are used as the first stage amplifiers right after a cavity since the total system noise is mainly determined by the noise temperature of the first stage amplifier of the system.
 Moreover, the resonance tunability of JPAs enables the combination of JPAs with tunable cavities.
 As a quantized circuit element, a modern theoretical model of the JPA~\cite{yamamoto_book} is not that simple.
 Nevertheless, it is possible to describe their overall features by harmonically combining basic concepts from classical mechanics, circuit theory, and quantum mechanics.
 In this section, I provide a theoretical comprehension of JPAs, including their resonance tunability, gain, noise, and the principle of signal amplification.
+
+
+
+
+
+## Reference
+
+[1] Çağlar Kutlu, Arjan F van Loo, Sergey V Uchaikin, Andrei N Matlashov, Doyu Lee, Seonjeong Oh, Jinsu Kim,
+Woohyun Chung, Yasunobu Nakamura, and Yannis K Semertzidis. Characterization of a flux-driven josephson
+parametric amplifier with near quantum-limited added noise for axion search experiments. Superconductor
+Science and Technology, 34(8):085013, 2021.
+[2] Jose Aumentado. Superconducting parametric amplifiers: The state of the art in josephson parametric amplifiers.
+IEEE Microwave magazine, 21(8):45–59, 2020.
+[3] Yoshihisa Yamamoto and Kouichi Semba. Principles and Methods of Quantum Information Technologies,
+volume 624. Springer, 2016.
+[4] Vadim Vasil’evich Schmidt and Paul Müller. The physics of superconductors: Introduction to fundamentals and
+applications. Springer Science & Business Media, 1997.
+[5] Tsuyoshi Yamamoto, K Inomata, M Watanabe, K Matsuba, T Miyazaki, William D Oliver, Yasunobu Nakamura,
+and JS Tsai. Flux-driven josephson parametric amplifier. Applied Physics Letters, 93(4), 2008.
+[6] Philip Krantz. The Josephson parametric oscillator–From microscopic studies to single-shot qubit readout.
+Chalmers Tekniska Hogskola (Sweden), 2016.
+[7] MJ Collett and DF Walls. Quantum limits to light amplifiers. Physical review letters, 61(21):2442, 1988.
+[8] M Renger, S Pogorzalek, Q Chen, Y Nojiri, K Inomata, Y Nakamura, M Partanen, A Marx, R Gross, F Deppe,
+et al. Beyond the standard quantum limit for parametric amplification of broadband signals. npj Quantum
+Information, 7(1):160, 2021.
+[9] L Zhong, EP Menzel, R Di Candia, P Eder, M Ihmig, A Baust, M Haeberlein, E Hoffmann, K Inomata,
+T Yamamoto, et al. Squeezing with a flux-driven josephson parametric amplifier. New Journal of Physics, 15
+(12):125013, 2013.
+[10] Aashish A Clerk, Michel H Devoret, Steven M Girvin, Florian Marquardt, and Robert J Schoelkopf. Introduction
+to quantum noise, measurement, and amplification. Reviews of Modern Physics, 82(2):1155, 2010.
+[11] Manuel Angel Castellanos Beltran. Development of a Josephson parametric amplifier for the preparation and
+detection of nonclassical states of microwave fields. PhD thesis, University of Colorado at Boulder, 2010.
+14
+
