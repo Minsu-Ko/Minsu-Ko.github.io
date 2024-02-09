@@ -62,24 +62,29 @@ For simplicity, assuming that both electrodes are made of the same material, $C_
 
 $$ C_1=\sqrt{n_s}e^{i\theta_1}, C_2=\sqrt{n_s}e^{i\theta_2}. \tag{1.4} $$
 
-Substituting these in (\ref{eq:1-3}), following equations are obtained with $\varphi=\theta_2-\theta_1$.
+Substituting these in (1.3), following equations are obtained with $\varphi=\theta_2-\theta_1$.
 
-$$\begin{dcases}
+$$\begin{cases}
     i\hbar\frac{dn_s}{dt}-2\hbar n_s\frac{d\theta_1}{dt}=2eVn_s+2Kn_se^{i\varphi}\\
     i\hbar\frac{dn_s}{dt}-2\hbar n_s\frac{d\theta_2}{dt}=2Kn_se^{-i\varphi}-2eVn_s \tag{1.5}
-\end{dcases}$$
+\end{cases}$$
 
-By separating real and imaginary parts,
-$$\begin{split}
-        \frac{dn_s}{dt}&=\frac{2Kn_s}{\hbar}\sin{\varphi}\\
-        \frac{d\theta_1}{dt}&=-\frac{K}{\hbar}\cos{\varphi}-\frac{eV}{\hbar}\\
-        \frac{d\theta_2}{dt}&=-\frac{K}{\hbar}\cos{\varphi}+\frac{eV}{\hbar}
-    \end{split} \tag{1.6}$$
+By separating real and imaginary parts, 
+$$\begin{cases}
+        \frac{dn_s}{dt}=\frac{2Kn_s}{\hbar}\sin{\varphi}\\
+        \frac{d\theta_1}{dt}=-\frac{K}{\hbar}\cos{\varphi}-\frac{eV}{\hbar}\\
+        \frac{d\theta_2}{dt}=-\frac{K}{\hbar}\cos{\varphi}+\frac{eV}{\hbar}
+    \end{cases} \tag{1.6}$$
 
+These lead to the following Josephson equations, the bridge between physical quantities ($n_s$, $V$) and the wave function's phase difference.
 
+$$\begin{dcases}
+    \frac{dn_s}{dt}=\frac{2Kn_s}{\hbar}\sin{\varphi}\\
+    \frac{d\varphi}{dt}=\frac{2eV}{\hbar}=\frac{2\pi}{\Phi_0}V
+\end{dcases} \tag{1.7}$$
 
-
-
+Here, $\Phi_0=h/2e$ is a magnetic flux quanta.
+It is obvious that $I_s \propto dn_s/dt$, which implies the relation between the critical current $I_c$ and $I_s$ under the existence of the phase difference.
 
 
 ## Reference
