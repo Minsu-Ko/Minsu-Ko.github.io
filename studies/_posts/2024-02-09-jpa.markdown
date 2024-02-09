@@ -35,7 +35,7 @@ I will show that the relation between the current flowing through the Josephson 
 
 Consider the Schr\"{o}dinger equation of the system with a discrete wave function basis expansion $\Psi(t)=\sum_\alpha C_{\alpha}(t)\psi_{\alpha}$.
 
-$$ i\hbar\frac{dC_\beta}{dt} = \sum_\alpha H_{\beta \alpha} C_\alpha(t) \tah{1.1}$$
+$$ i\hbar\frac{dC_\beta}{dt} = \sum_\alpha H_{\beta \alpha} C_\alpha(t) \tag{1.1}$$
 
 Note that $H_{ii}$ is the energy of the system in the state $\psi_i$ and $H_{ij}$ is representing the transition probability between two states $\psi_i$ and $\psi_j$.
 Now assume that the current through the Josephson junction is so larger ($I_s > I_c$)that there is voltage $V$ across the junction.
@@ -44,7 +44,11 @@ That is, an electron pair (with charge $2e$) can occupy either level 1 or 2, wit
 Since there is a voltage $V$ across the junction, we can easily set $H_{11}=+eV$ and $H_{22}=-eV$.
 Also, introducing the transition element $H_{12}=H_{21}=K$, a system of differential equations associated with the Hamiltonian is established.
 
-$$\nabla$$
+$$H =
+    \begin{pmatrix} 
+   eV & K  \\
+   K & -eV  \\
+   \end{pmatrix} \tag{1.2}$$
 
 ## Reference
 
