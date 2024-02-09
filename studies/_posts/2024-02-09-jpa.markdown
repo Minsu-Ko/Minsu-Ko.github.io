@@ -10,6 +10,8 @@ hide_description: true
 
 # Basic Comprehension of a Flux-Driven Josephson Parametric Amplifier
 
+You can download **[this note]** as a pdf file.
+
 <p align="center">
   <img src="/assets/img/basic_JPA/0001.jpg" style="width:100%; height:auto;"/>
   <br>
@@ -136,3 +138,4 @@ to quantum noise, measurement, and amplification. Reviews of Modern Physics, 82(
 detection of nonclassical states of microwave fields. PhD thesis, University of Colorado at Boulder, 2010.   
    
 
+[this note]: /distributions/studies/JPA_basic.pdf
