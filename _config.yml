@@ -187,13 +187,6 @@ kramdown:
 # ----------------------------------------------------------------------------------------
 # These settings are specific to Hydejack.
 
-# Math equation
-markdown: kramdown
-highlighter: rouge
-lsi: false
-excerpt_separator: "\n\n"
-incremental: false
-
 hydejack:
   # Configure the order of complementary content on blog posts
   post_addons:         [about, newsletter, related, random, comments]

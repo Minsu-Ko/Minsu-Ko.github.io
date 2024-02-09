@@ -14,7 +14,7 @@ use_math: true
 The Josephson Parametric Amplifier (JPA) is one of the quantum-noise-limited amplifiers widely used for low noise signal readouts, from axion haloscopes [1] to quantum computers [2].
 Especially for axion haloscopes, JPAs are used as the first stage amplifiers right after a cavity since the total system noise is mainly determined by the noise temperature of the first stage amplifier of the system.
 Moreover, the resonance tunability of JPAs enables the combination of JPAs with tunable cavities.
-As a quantized circuit element, a modern theoretical model of the JPA~\cite{yamamoto_book} is not that simple.
+As a quantized circuit element, a modern theoretical model of the JPA [3] is not that simple.
 Nevertheless, it is possible to describe their overall features by harmonically combining basic concepts from classical mechanics, circuit theory, and quantum mechanics.
 In this section, I provide a theoretical comprehension of JPAs, including their resonance tunability, gain, noise, and the principle of signal amplification.   
 
