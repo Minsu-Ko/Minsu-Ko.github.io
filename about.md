@@ -29,4 +29,4 @@ I'm currently funded by the 2024 long-term Undergraduate Research Program (URP) 
 <div style="clear:both;"></div>
 
 
-[CV]: /distributions/CV_minsu_240207.pdf
+[CV]: /distributions/CV_minsu_240209.pdf
