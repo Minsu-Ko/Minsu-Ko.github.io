@@ -35,7 +35,7 @@ I will show that the relation between the current flowing through the Josephson 
 
 Consider the Schr\"{o}dinger equation of the system with a discrete wave function basis expansion $\Psi(t)=\sum_\alpha C_{\alpha}(t)\psi_{\alpha}$.
 
-$$ i\hbar\frac{dC_\beta}{dt} = \sum_\alpha H_{\beta \alpha} C_\alpha(t) \tag{1.1}$$
+$$ i\hbar\frac{dC_\beta}{dt} = \sum_\alpha H_{\beta \alpha} C_\alpha(t) \tag{1.1} $$
 
 Note that $H_{ii}$ is the energy of the system in the state $\psi_i$ and $H_{ij}$ is representing the transition probability between two states $\psi_i$ and $\psi_j$.
 Now assume that the current through the Josephson junction is so larger ($I_s > I_c$)that there is voltage $V$ across the junction.
@@ -44,20 +44,43 @@ That is, an electron pair (with charge $2e$) can occupy either level 1 or 2, wit
 Since there is a voltage $V$ across the junction, we can easily set $H_{11}=+eV$ and $H_{22}=-eV$.
 Also, introducing the transition element $H_{12}=H_{21}=K$, a system of differential equations associated with the Hamiltonian is established.
 
-\[
+$$
   H =
     \begin{pmatrix} 
    eV & K  \\
    K & -eV  \\
    \end{pmatrix} \tag{1.2}
-\]
+$$
 
 $$\begin{cases}
 i\hbar\frac{dC_1}{dt}=eVC_1(t)+KC_2(t) \\
 i\hbar\frac{dC_2}{dt}=KC_1(t)-eVC_2(t) \tag{1.3}
 \end{cases}$$
 
-\begin{equation}
+Provided that $C_1$ is the amplitude of the pair state at level 1, a physical interpretation forces one to set $|C_1|^2=n_s$, where $n_s$ is the density of superconducting electrons in the junction electrodes.
+For simplicity, assuming that both electrodes are made of the same material, $C_1$ and $C_2$ can be written as
+
+$$ C_1=\sqrt{n_s}e^{i\theta_1}, C_2=\sqrt{n_s}e^{i\theta_2}. \tag{1.4} $$
+
+Substituting these in (\ref{eq:1-3}), following equations are obtained with $\varphi=\theta_2-\theta_1$.
+
+$$\begin{dcases}
+    i\hbar\frac{dn_s}{dt}-2\hbar n_s\frac{d\theta_1}{dt}=2eVn_s+2Kn_se^{i\varphi}\\
+    i\hbar\frac{dn_s}{dt}-2\hbar n_s\frac{d\theta_2}{dt}=2Kn_se^{-i\varphi}-2eVn_s \tag{1.5}
+\end{dcases}$$
+
+By separating real and imaginary parts,
+$$\begin{split}
+        \frac{dn_s}{dt}&=\frac{2Kn_s}{\hbar}\sin{\varphi}\\
+        \frac{d\theta_1}{dt}&=-\frac{K}{\hbar}\cos{\varphi}-\frac{eV}{\hbar}\\
+        \frac{d\theta_2}{dt}&=-\frac{K}{\hbar}\cos{\varphi}+\frac{eV}{\hbar}
+    \end{split} \tag{1.6}$$
+
+
+
+
+
+
 
 ## Reference
 
