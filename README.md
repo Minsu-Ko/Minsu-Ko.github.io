@@ -2,4 +2,4 @@
 
 Use pdf to image [HERE].
 
-[HERE]:/ https://smallpdf.com/kr/pdf-to-jpg
+[HERE]: https://smallpdf.com/kr/pdf-to-jpg
