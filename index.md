@@ -21,9 +21,8 @@ and Technology (KAIST). Currently I'm working as a student assistant at the Cent
 Research (CAPP) of Institute for Basic Science (IBS).
 
 **My interest lies on**
-- Fundamental particle physics related to the creation and evolution of the universe.
-- Cosmology based on the observational particle physics, founded by [Koshiba].
-- Cutting-edge sensitivity detectors for the beyond standard model physics.
+- Observational cosmology and particle physics experiment.
+- Low temperature radio physics.
 
 **This is my small blog.**
 - [About me (CV)] : You can get details about me and see (or download) my CV.
