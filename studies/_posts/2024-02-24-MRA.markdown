@@ -448,4 +448,8 @@ if __name__ == '__main__':
          grid=parsed.grid)
 ```
 
-
+<p align="center">
+  <img src="/assets/img/MRA.png" style="width:80%; height:auto;"/>
+  <br>
+</p>
+<div style="clear:both;"></div>
