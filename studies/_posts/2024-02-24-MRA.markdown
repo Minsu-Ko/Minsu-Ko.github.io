@@ -1,0 +1,449 @@
+---
+layout: post
+title: MRA
+date: 2024-02-18
+description: >
+  MRA python program.
+categories: studies
+hide_description: true
+---
+
+# Multiple Resonance Analysis program
+
+'''python
+"""
+analyzing gory flux sweep.
+This version is for any number (> 1) of JPAs.
+"""
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import xarray as xr
+import random
+import pandas as pd
+from itertools import permutations, combinations
+import collections
+import argparse
+import os
+from pathlib import Path
+from scipy.signal import savgol_filter, find_peaks
+from scipy.interpolate import UnivariateSpline
+from scipy.stats import linregress
+
+from groundcontrol import __version__
+from groundcontrol.logging import setup_logger, create_log, INFO,\
+    set_stdout_loglevel, DEBUG
+from groundcontrol.declarators import setting, declarative, quantity, parameter
+
+from amputils.garnish import welcome
+
+
+__analysis_name__ = "JPA_Resonance_Classification"
+__script_version__ = "0.2"      # Version 0.2 for generalized ampsize.
+
+
+welcome()
+logger = setup_logger("gory_analyzer")
+logger.info(f"groundcontrol version: {__version__}")
+logger.info(f"{__analysis_name__}(v{__script_version__}) Started ")
+
+
+
+def setup_parser():
+    parser = argparse.ArgumentParser(description='script to analyze 3 JPA Gorynych resonance')
+
+    parser.add_argument(
+           '-p', '--path', type = Path, default = None, help = 'path to Measurement data file')
+    parser.add_argument(
+           '-n', '--numJPA', type = int, default = 3, help = 'the number of JPAs.')
+    parser.add_argument(
+           '-u', '--upsample', type = int, default = 10, help = 'the size of coil current upsampling Default value is 10.')
+    parser.add_argument(
+           '-b', '--fullBW', type = float, default = 3e6, help = 'Expected Full BandWidth of the amp. Default BW is 300 MHz.')
+    parser.add_argument(
+           '-x', '--outname_xr', type = str, default = 'fw_xarray', help = 'name of output netcdf file. Default name is fw.nc.')
+    parser.add_argument(
+           '-f', '--outname_pic', type = str, default = 'flux_sweep', help = 'name of output png file. Default name is flux_sweep.png')
+    parser.add_argument(
+           '-g', '--grid', action='store_false', default=True, help='If you want to erase the grid, set -g or --grid')
+    
+    return parser
+
+
+
+@declarative
+class Gorynych_analyzer:
+    pdir: Path
+    ampsize: int
+    upsample: int
+
+    fbw_exp: float
+
+    outname_xr: str
+    outname_pic: str
+
+    grid: bool
+
+    datasize = 0
+    crashed = 0
+
+    rawdata, perfect, mixed, JPAs, uks = None, None, None, None, None
+
+
+    def search_files(self):
+        dirpath = self.pdir
+        filepath = dirpath / 'SPPM'
+        files = list(filepath.glob('*.csv'))
+        paths = {}
+        plist = []
+        for i in range(len(files)):
+            file = list(filepath.glob(f'*i{i}_*'))
+            paths[i] = file[0]
+            plist.append(file[0])
+            self.datasize += 1
+
+        if self.datasize == 0:
+            error = "Dataszie is 0. Check whether you assigned the correct directoty."
+
+            raise RuntimeError(error)
+        
+        logger.info(f'{self.datasize} files are searched.')
+
+        return files, plist, paths
+
+
+    def search_current(self):
+        currpath = self.pdir / 'sweep_params.csv'
+        curr = pd.read_csv(currpath, skiprows=1, names=['curr'])
+        curr = np.array(curr.curr)
+
+        if len(curr) == 0:
+            error = "No current found. Check whether you assigned the correct directoty."
+            
+            raise RuntimeError(error)
+        
+        return curr
+    
+
+    def curr_to_idx(self, ibval, ibuA):
+        ibuA = list(ibuA)
+        idx = ibuA.index(ibval)
+        
+        return idx
+    
+
+    def save_xarray(self, curr):
+        alph = {1:'A', 2:'B', 3:'C', 4:'D', 5:'E', 6:'F'}
+        
+        ibA = curr
+        res = []
+        for i in range(self.ampsize):
+            y = []
+            dd = self.JPAs[i]
+            for key in dd:
+                y.append(dd[key]*1e9)
+            res.append(y)
+
+        fw = xr.Dataset(coords = {'ib': ibA})
+        
+        for i, fr in enumerate(res):
+            fw[f'fr{alph[i+1]}'] = ('ib', res[i])
+            fw[f'fr{alph[i+1]}GHz'] = fw[f'fr{alph[i+1]}']*1e-9
+
+        fw['ibuA'] = fw.ib*1e6
+        fw = fw.swap_dims({'ib': 'ibuA'})
+        fw.attrs['desc'] = str(self.pdir)
+
+        if True:
+            fw.to_netcdf(self.pdir / f'{self.outname_xr}.nc')
+            logger.info('xarray data is saved as nc file.')
+    
+
+    def save_plot(self):
+        fig, axs = plt.subplots()
+
+        for i in range(self.ampsize):
+            x, y = [], []
+            dd = self.JPAs[i]
+            for key in dd:
+                x.append(key)
+                y.append(dd[key])
+            
+            if True:
+                axs.scatter(x, y, s=10, zorder=10)
+
+        axs.set_xlabel(r'Coil current ($\mu$A)')
+        axs.set_ylabel('Resonance frequency (GHz)')
+        if self.grid:
+            axs.grid()
+
+        if True:
+            fig.savefig(self.pdir / f'{self.outname_pic}.png')
+            logger.info('Flux sweep plot is saved.')
+            plt.show()
+    
+
+    def gen_rawdata(self):
+        files, plist, paths = self.search_files()
+        ib = self.search_current()
+        ibuA = np.round(ib*1e6, 4)
+        currstep = ib[1] - ib[0]
+        currsign = np.sign(currstep)
+        bw_exp = self.fbw_exp / self.ampsize
+
+        for i, path in enumerate(plist):
+            data = pd.read_csv(path, skiprows=8, names=['freq', 'mag', 'phase', 'uphase'])
+            f = np.array(data['freq'])
+            Up = np.array(data['uphase'])
+
+            elen_slope = (data.uphase.values[-1]-data.uphase[0]+360*self.ampsize)/(f[-1]-f[0])
+            arc_slope = -1/bw_exp * (180/np.pi)
+
+            height = -1*(arc_slope/1.5)
+
+            step = f[1]-f[0]
+            end = float((f[-1]-f[0])/step)
+            increase_size = int(self.upsample*end+1)
+            step2 = step*end/increase_size
+
+            width_exp = self.fbw_exp/step2
+
+            factor = int(self.datasize/8)
+            slope, intercept, r_value, p_value, std_err = linregress(f[0:factor], Up[0:factor])
+            Fitted_Up = slope * f + intercept
+
+            rel_phase = Up - Fitted_Up
+            smooth_rel_phase = savgol_filter(rel_phase, 51, 3) 
+
+            spline = UnivariateSpline(f, smooth_rel_phase, k=3, s=0)    # k is order of polynomial. s=0 means smoothing is trying to pass the datapoints at best.
+            dspline = spline.derivative()
+
+            xf = np.linspace(data.freq[0], data.freq[end], increase_size)
+            y = dspline(xf)
+            smooth_y = savgol_filter(y, 101, 3) 
+
+            peaks_idx, _ = find_peaks(-1*smooth_y, height, width=width_exp/2)
+            
+            self.rawdata[ibuA[i]] = xf[peaks_idx]
+        
+    
+
+    def raw_process(self):       # manage out-ampsize resonances and make unit into ibuA and frGHz
+        update = {}
+        keys = list(self.rawdata.keys())
+        for i in range(len(keys)):
+            resonance = self.rawdata[keys[i]]
+            
+            if len(resonance) == self.ampsize:
+                update[keys[i]] = self.rawdata[keys[i]]
+        
+        for key, value in update.items():
+            upval = []
+            for i in range(len(value)):
+                upval.append(value[i] / 1e9)
+            update[key] = upval
+                    
+        return update
+    
+
+    def find_bound2(self, pdata):     # new way to find bounds using slope of the sum of all resonances.
+        x = []
+        y = []
+        
+        for key in pdata:
+            x.append(key)
+            ll = sum(pdata[key])
+            y.append(ll)
+        
+        smooth_y = savgol_filter(y, 7, 3)
+        spline = UnivariateSpline(x, smooth_y, k=3, s=0)    # k is order of polynomial. s=0 means smoothing is trying to pass the datapoints at best.
+        dspline = spline.derivative()
+        
+        scaled_x = x
+        dy = dspline(scaled_x)
+        
+        smooth_dy = savgol_filter(dy, 21, 3)
+        judge = list(np.abs(smooth_dy))
+        
+        idx = judge.index(min(judge))
+        ibval = x[idx]
+        bounds2 = np.array(pdata[ibval]) + 0.01/2
+
+        if len(bounds2) == self.ampsize:
+            logger.info(f'Proper bounds are found.: {sorted(bounds2)}')
+        else:
+            logger.info('Warning: Bounds cannot be found.')
+            RuntimeError('Warning: Bounds cannot be found.')
+        
+        return sorted(bounds2)
+    
+
+    def well_bounded(self, point: list, bounds: list):
+        count = 0
+        for i, data in enumerate(point):
+            if i == 0:
+                if data <= bounds[i]:
+                    count += 1
+            elif i == len(point)-1:
+                if data > bounds[i-1]:
+                    count += 1
+            else:
+                if bounds[i-1] < data < bounds[i]:
+                    count += 1
+        
+        
+        return count
+    
+
+    def find_pv2(self, lst, value):
+        smaller = [x for x in lst if x < value]
+        
+        return sorted(smaller)[-2:]
+    
+
+    def find_nx2(self, lst, value):
+        larger = [x for x in lst if x > value]
+        
+        return sorted(larger)[0:2]
+
+
+    def fillup(self, ib_full, ib_recd):
+        for i in range(self.ampsize):
+            while True:
+                ib_J1 = list(self.JPAs[i].keys())
+                gap = [item for item in ib_recd if item not in ib_J1][0]
+
+                i0, i1 = self.find_pv2(ib_J1, gap)
+                slope1 = (self.JPAs[i][i1]-self.JPAs[i][i0])/(i1-i0)
+                guess_from_left = self.JPAs[i][i1] + slope1 * (gap-i1)
+
+                i2, i3 = self.find_nx2(ib_J1, gap)
+                slope2 = (self.JPAs[i][i3]-self.JPAs[i][i2])/(i3-i2)
+                guess_from_right = self.JPAs[i][i2] - slope2 * (i2-gap)
+                
+                cands = []
+                for unknown in self.uks:
+                    if unknown[0] == gap:
+                        cands.append(unknown)
+                
+                cands_min_index = 0
+                cands_min_value = cands[0][1]
+                for j in range(1, len(cands)):
+                    if cands[j][1] < cands_min_value:
+                        cands_min_value = cands[j][1]
+                        cands_min_index = j
+                
+                diffs_L = []
+                for j in range(len(cands)):
+                    diffs_L.append(np.abs(cands[j][1]-guess_from_left)) 
+                min_idx_L = diffs_L.index(min(diffs_L))
+
+                diffs_R = []
+                for j in range(len(cands)):
+                    diffs_R.append(np.abs(cands[j][1]-guess_from_right)) 
+                min_idx_R = diffs_R.index(min(diffs_R))
+
+                diffs_M = []
+                for j in range(len(cands)):
+                    diffs_M.append(np.abs(cands[j][1]-(guess_from_right+guess_from_left)/2)) 
+                min_idx_M = diffs_M.index(min(diffs_M))
+
+                min_idx = min_idx_M     # basically using 2 point guess.
+                if np.abs(slope1) > 0.015 or np.abs(slope2) > 0.015:    # The gap is on the tail.
+                    min_idx = cands_min_index
+
+                self.JPAs[i][gap] = cands[min_idx][1]
+
+                self.uks.remove(cands[min_idx])
+
+                if len(self.JPAs[i]) == len(ib_recd):
+                    break
+                
+            ib_J1 = list(self.JPAs[i].keys())
+            defects = [item for item in ib_full if item not in ib_J1]
+            for k in range(len(defects)):
+                self.JPAs[i][defects[k]] = np.nan
+                self.crashed += 1
+
+            self.JPAs[i] = dict(sorted(self.JPAs[i].items()))
+            logger.info(f'Filling up data is completed for {i+1}th JPA.')
+    
+
+    def initiate(self):
+        create_log(self.pdir / "GorynychAnalyzer.log", INFO)
+
+        self.rawdata = {}
+        self.perfect = {}
+        self.mixed = {}
+        self.JPAs = [{} for _ in range(self.ampsize)]
+        self.uks = []
+    
+
+    def run(self):
+        ibA = self.search_current() # current, unit: A
+        ib_full = np.round(ibA * 1e6, 3)
+        self.gen_rawdata()
+        pdata = self.raw_process()   # only 'ampsize' resonances are filterd, unit: GHz vs uA
+        ib_recd = pdata.keys()
+
+        # Find boundaries.
+        bd = self.find_bound2(pdata)
+        
+        # Distinguish perfectly aligned data points.
+        for key in pdata:
+            ordered = sorted(pdata[key])
+            if self.well_bounded(ordered, bd) == self.ampsize:     # (numJPA) resonances are well distinguised.     
+                self.perfect[key] = ordered
+            else:
+                self.mixed[key] = ordered
+
+        logger.info(f'Processed {len(self.perfect)} points out of {self.datasize} points.')
+        logger.info(f'Remaining points are {len(self.mixed)} points.')
+                
+        # Put data into JPAs (1st, 2nd, 3rd, ... JPA) or unknowns.
+        for key in self.perfect:
+            for i in range(self.ampsize):
+                self.JPAs[i][key] = self.perfect[key][i]
+
+        for key in self.mixed:
+            for i in range(self.ampsize):
+                point = []
+                point.append(key)
+                point.append(self.mixed[key][i])
+                self.uks.append(point)
+        
+        # fill up empty points only when there are points which is not distinguished.
+        if len(self.uks) == 0:
+            logger.info('All the datapoints are perfectly distinguised. Start saving.')
+        
+        if len(self.uks) != 0:
+            logger.info('Start filling up indistinguised points.')
+            self.fillup(ib_full, ib_recd)
+            logger.info(f'Crashed measurements are {self.crashed//self.ampsize} points.')
+
+            if len(self.uks) == 0:
+                logger.info('All points are distinguised. Start saving.')
+                self.save_xarray(ibA)
+                self.save_plot()
+
+
+
+def main(pathdir: Path, ampsize: int, upsample: int, fbw_exp: float, outname_xr: str, outname_pic: str, grid: bool):
+    JC = Gorynych_analyzer(pathdir, ampsize, upsample, fbw_exp, outname_xr, outname_pic, grid)
+    JC.initiate()
+    JC.run()
+
+
+
+if __name__ == '__main__':
+    parser = setup_parser()
+    parsed = parser.parse_args()
+    main(pathdir=parsed.path,
+         ampsize=parsed.numJPA,
+         upsample=parsed.upsample,
+         fbw_exp=parsed.fullBW,
+         outname_xr=parsed.outname_xr,
+         outname_pic=parsed.outname_pic,
+         grid=parsed.grid)
+'''
