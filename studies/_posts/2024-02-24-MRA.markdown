@@ -10,7 +10,7 @@ hide_description: true
 
 # Multiple Resonance Analysis program
 
-'''python
+```python
 """
 analyzing gory flux sweep.
 This version is for any number (> 1) of JPAs.
@@ -446,4 +446,6 @@ if __name__ == '__main__':
          outname_xr=parsed.outname_xr,
          outname_pic=parsed.outname_pic,
          grid=parsed.grid)
-'''
+```
+
+
