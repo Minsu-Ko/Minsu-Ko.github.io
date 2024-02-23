@@ -449,7 +449,7 @@ if __name__ == '__main__':
 ```
 
 <p align="center">
-  <img src="/assets/img/MRA.png" style="width:80%; height:auto;"/>
+  <img src="/assets/img/MRA.PNG" style="width:80%; height:auto;"/>
   <br>
 </p>
 <div style="clear:both;"></div>
